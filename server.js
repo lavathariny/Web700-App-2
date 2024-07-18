@@ -106,9 +106,9 @@ app.use((req, res) => {
 
 // Initialize the data and start the server
 collegeData.initialize().then(() => {
-    app.listen(8080, () => {
-        console.log("Server is running on http://localhost:8080");
-    });
+    app.listen(process.env.PORT || 8080, () => {
+        console.log(`Server is running on port ${process.env.PORT || 8080}`);
+    });    
 }).catch((err) => {
     console.error("Unable to start server:", err.message);
 });
